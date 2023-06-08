@@ -1,7 +1,6 @@
 ﻿using OpenQA.Selenium;
-using SeleniumXUnitBasic.DriverService;
 using SeleniumXUnitBasic.Settings;
-using static SeleniumXUnitBasic.DriverService.BrowserDriver;
+using static SeleniumXUnitBasic.Driver.BrowserDriver;
 
 namespace SeleniumXUnitBasic.Driver;
 

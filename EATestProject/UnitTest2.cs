@@ -1,9 +1,8 @@
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using SeleniumXUnitBasic.Driver;
-using SeleniumXUnitBasic.DriverService;
 
-namespace SeleniumXUnitBasic
+namespace EATestProject
 {
     public class UnitTest2 : IDisposable
     {

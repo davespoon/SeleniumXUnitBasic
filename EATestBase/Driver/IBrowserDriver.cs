@@ -1,6 +1,6 @@
 ﻿using OpenQA.Selenium;
 
-namespace SeleniumXUnitBasic.DriverService;
+namespace SeleniumXUnitBasic.Driver;
 
 public interface IBrowserDriver
 {
