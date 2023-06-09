@@ -1,6 +1,6 @@
 ﻿using OpenQA.Selenium;
-using OpenQA.Selenium.Support.UI;
 using SeleniumXUnitBasic.Driver;
+using SeleniumXUnitBasic.Settings;
 
 namespace EATestProject.Pages;
 
@@ -22,8 +22,9 @@ public class HomePage : IHomePage
         LnkCreate.Click();
     }
 
-    public void Open()
-    {
-        _driver.Navigate().GoToUrl("http://localhost:5001/Product/List");
-    }
+    // public void Open()
+    // {
+    //     // _driver.Navigate().GoToUrl("http://localhost:5001/Product/List");
+    //     _driver.Navigate().GoToUrl(_testSettings.AppUri);
+    // }
 }

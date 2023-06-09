@@ -1,6 +1,4 @@
-﻿using OpenQA.Selenium;
-
-namespace EATestProject.Pages
+﻿namespace EATestProject.Pages
 {
     public interface IHomePage
     {
@@ -8,6 +6,6 @@ namespace EATestProject.Pages
         //IWebElement LnkProduct { get; }
 
         void CreateProduct();
-        void Open();
+        // void Open();
     }
 }

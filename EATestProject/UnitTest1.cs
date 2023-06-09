@@ -2,20 +2,22 @@ using AutoFixture.Xunit2;
 using EATestProject.Model;
 using EATestProject.Pages;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Support.UI;
 using SeleniumXUnitBasic.Driver;
 
 namespace EATestProject
 {
-    public class UnitTest1 : IDisposable
+    public class UnitTest1
     {
         IHomePage _homePage;
-        ICreateProductPage _createProductPage;
-        IWebDriver _driver;
 
-        public UnitTest1(IHomePage homePage, ICreateProductPage createProductPage, IDriverFixture driverFixture)
+        ICreateProductPage _createProductPage;
+        // IWebDriver _driver;
+
+        public UnitTest1(IHomePage homePage, ICreateProductPage createProductPage
+            // IDriverFixture driverFixture
+        )
         {
-            _driver = driverFixture.Driver;
+            // _driver = driverFixture.Driver;
             _homePage = homePage;
             _createProductPage = createProductPage;
         }
@@ -32,7 +34,7 @@ namespace EATestProject
                 ProductType = ProductType.EXTERNAL
             };
 
-            _homePage.Open();
+            // _homePage.Open();
             _homePage.CreateProduct();
             _createProductPage.EnterProductDetails(product);
         }
@@ -41,7 +43,7 @@ namespace EATestProject
         [Theory, AutoData]
         public void Test2(Product product)
         {
-            _homePage.Open();
+            // _homePage.Open();
             _homePage.CreateProduct();
             _createProductPage.EnterProductDetails(product);
         }
@@ -54,10 +56,5 @@ namespace EATestProject
         //     element.Click();
         //     var select = new SelectElement(_driver.FindElement(By.Id("ProductType")));
         // }
-
-        public void Dispose()
-        {
-            _driver.Dispose();
-        }
     }
 }

@@ -1,6 +1,5 @@
 ﻿using EATestProject.Model;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Support.UI;
 using SeleniumXUnitBasic.Driver;
 using SeleniumXUnitBasic.Extensions;
 

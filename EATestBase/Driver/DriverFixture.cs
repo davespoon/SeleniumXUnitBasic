@@ -1,10 +1,9 @@
 ﻿using OpenQA.Selenium;
 using SeleniumXUnitBasic.Settings;
-using static SeleniumXUnitBasic.Driver.BrowserDriver;
 
 namespace SeleniumXUnitBasic.Driver;
 
-public class DriverFixture : IDriverFixture
+public class DriverFixture : IDriverFixture, IDisposable
 {
     private readonly IWebDriver _driver;
     private readonly IBrowserDriver _browserDriver;
@@ -15,6 +14,7 @@ public class DriverFixture : IDriverFixture
         _testSettings = testSettings;
         _browserDriver = browserDriver;
         _driver = GetDriver();
+        _driver.Navigate().GoToUrl(_testSettings.AppUri);
     }
 
     public IWebDriver Driver => _driver;
@@ -28,5 +28,11 @@ public class DriverFixture : IDriverFixture
             BrowserType.Firefox => driver.FirefoxDriver,
             _ => driver.ChromeDriver
         };
+    }
+
+
+    public void Dispose()
+    {
+        Driver.Dispose();
     }
 }

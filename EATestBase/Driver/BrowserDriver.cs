@@ -25,10 +25,4 @@ public class BrowserDriver : IBrowserDriver
             return new FirefoxDriver();
         }
     }
-
-    public enum BrowserType
-    {
-        Chrome,
-        Firefox
-    }
 }

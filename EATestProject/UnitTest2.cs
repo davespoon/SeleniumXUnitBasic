@@ -4,7 +4,7 @@ using SeleniumXUnitBasic.Driver;
 
 namespace EATestProject
 {
-    public class UnitTest2 : IDisposable
+    public class UnitTest2
     {
         private readonly IWebDriver _driver;
 
@@ -29,11 +29,6 @@ namespace EATestProject
             var element = _driver.FindElement(By.LinkText("Create"));
             element.Click();
             var select = new SelectElement(_driver.FindElement(By.Id("ProductType")));
-        }
-
-        public void Dispose()
-        {
-            _driver.Dispose();
         }
     }
 }
