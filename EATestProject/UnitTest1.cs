@@ -46,6 +46,8 @@ namespace EATestProject
             // _homePage.Open();
             _homePage.CreateProduct();
             _createProductPage.EnterProductDetails(product);
+            
+            _homePage.PerformClickOnDetails("Monitor", "Details");
         }
 
         // [Fact]

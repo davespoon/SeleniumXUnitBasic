@@ -6,6 +6,8 @@
         //IWebElement LnkProduct { get; }
 
         void CreateProduct();
+
+        void PerformClickOnDetails(string name, string operation);
         // void Open();
     }
 }
