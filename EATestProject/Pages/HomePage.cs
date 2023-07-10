@@ -26,7 +26,7 @@ public class HomePage : IHomePage
     }
 
 
-    public void PerformClickOnDetails(string name, string operation)
+    public void PerformClickOnSpecialValue(string name, string operation)
     {
         TblList.PerformActionOnCell("5", "Name", name, operation);
     }

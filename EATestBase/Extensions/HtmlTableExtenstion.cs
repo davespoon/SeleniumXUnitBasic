@@ -62,42 +62,51 @@ public static class HtmlTableExtenstion
         return columnSpecialValue;
     }
 
-    public static void PerformActionOnCell(this IWebElement element, string targetColumnIndex, string refColumnName,
-        string refColumnValue, string controlToOperate = null)
+    public static void PerformActionOnCell(this IWebElement element, string targetColumnIndex, string refColumnName, string refColumnValue, string controlToOperate = null)
     {
+        //First read the table
         var table = ReadTable(element);
 
+        //iterate in the table and get the type of cell you are looking for
         foreach (int rowNumber in GetDynamicRowNumber(table, refColumnName, refColumnValue))
         {
             var cell = (from e in table
-                where e.ColumnName == targetColumnIndex && e.RowNumber == rowNumber
-                select e.ColumnSpecialValue).SingleOrDefault();
+                        where e.ColumnName == targetColumnIndex && e.RowNumber == rowNumber
+                        select e.ColumnSpecialValue).SingleOrDefault();
 
+            //Need to operate on those controls
             if (controlToOperate != null && cell != null)
             {
                 IWebElement? elementToClick = null;
-
+                //Since based on the control type, the retriving of text changes
+                //created this kind of control
                 if (cell.ControlType == ControlType.hyperLink)
                 {
-                    elementToClick = (from c in cell.ElementCollection where c.Text == controlToOperate select c)
-                        .SingleOrDefault();
-                }
+                    elementToClick = (from c in cell.ElementCollection
+                                      where c.Text == controlToOperate.ToString()
+                                      select c).SingleOrDefault();
 
+                }
                 if (cell.ControlType == ControlType.input)
                 {
                     elementToClick = (from c in cell.ElementCollection
-                        where c.GetAttribute("value") == controlToOperate
-                        select c).SingleOrDefault();
+                                      where c.GetAttribute("value") == controlToOperate.ToString()
+                                      select c).SingleOrDefault();
+
                 }
 
+                //ToDo: Currenly only click is supported, future is not taken care here
                 elementToClick?.Click();
-            }
+                return;
 
+            }
             else
             {
-                cell.ElementCollection.First().Click();
+                cell.ElementCollection?.First().Click();
+                return;
             }
         }
+
     }
 
     private static IEnumerable GetDynamicRowNumber(List<TableDataCollection> tableCollection, string columnName,

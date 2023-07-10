@@ -2,8 +2,9 @@
 
 namespace EATestProject.Pages
 {
-    public interface ICreateProductPage
+    public interface IProductPage
     {
         void EnterProductDetails(Product product);
+        Product GetProductDetails();
     }
 }

@@ -7,7 +7,7 @@
 
         void CreateProduct();
 
-        void PerformClickOnDetails(string name, string operation);
+        void PerformClickOnSpecialValue(string name, string operation);
         // void Open();
     }
 }

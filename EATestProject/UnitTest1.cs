@@ -1,6 +1,7 @@
 using AutoFixture.Xunit2;
 using EATestProject.Model;
 using EATestProject.Pages;
+using FluentAssertions;
 using OpenQA.Selenium;
 using SeleniumXUnitBasic.Driver;
 
@@ -10,16 +11,16 @@ namespace EATestProject
     {
         IHomePage _homePage;
 
-        ICreateProductPage _createProductPage;
+        IProductPage _productPage;
         // IWebDriver _driver;
 
-        public UnitTest1(IHomePage homePage, ICreateProductPage createProductPage
-            // IDriverFixture driverFixture
+        public UnitTest1(IHomePage homePage, IProductPage productPage
+        // IDriverFixture driverFixture
         )
         {
             // _driver = driverFixture.Driver;
             _homePage = homePage;
-            _createProductPage = createProductPage;
+            _productPage = productPage;
         }
 
 
@@ -36,27 +37,33 @@ namespace EATestProject
 
             // _homePage.Open();
             _homePage.CreateProduct();
-            _createProductPage.EnterProductDetails(product);
+            _productPage.EnterProductDetails(product);
         }
 
 
         [Theory, AutoData]
         public void Test2(Product product)
         {
+            product.Name = "Monitor";
             // _homePage.Open();
             _homePage.CreateProduct();
-            _createProductPage.EnterProductDetails(product);
-            
-            _homePage.PerformClickOnDetails("Monitor", "Details");
+            _productPage.EnterProductDetails(product);
+
+            _homePage.PerformClickOnSpecialValue(product.Name, "Details");
         }
 
-        // [Fact]
-        // public void Test2()
-        // {
-        //     _driver.Navigate().GoToUrl("http://localhost:5001/Product/List");
-        //     var element = _driver.FindElement(By.LinkText("Create"));
-        //     element.Click();
-        //     var select = new SelectElement(_driver.FindElement(By.Id("ProductType")));
-        // }
+        [Theory, AutoData]
+        public void Test3(Product product)
+        {
+            product.Name = "Monitor";
+            // _homePage.Open();
+            _homePage.CreateProduct();
+            _productPage.EnterProductDetails(product);
+
+            _homePage.PerformClickOnSpecialValue(product.Name, "Details");
+            var actualProduct = _productPage.GetProductDetails();
+
+            actualProduct.Should().BeEquivalentTo(product, options => options.Excluding(x => x.ID));
+        }
     }
 }

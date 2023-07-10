@@ -5,11 +5,11 @@ using SeleniumXUnitBasic.Extensions;
 
 namespace EATestProject.Pages;
 
-public class CreateProductPage : ICreateProductPage
+public class ProductPage : IProductPage
 {
     private IWebDriver _driver;
 
-    public CreateProductPage(IDriverFixture driverFixture)
+    public ProductPage(IDriverFixture driverFixture)
     {
         _driver = driverFixture.Driver;
     }
@@ -28,5 +28,17 @@ public class CreateProductPage : ICreateProductPage
         TxtPrice.SendKeys(product.Price.ToString());
         DdlProductType.SelectDropDownByText(product.ProductType.ToString());
         BtnCreate.Click();
+        
+    }
+
+    public Product GetProductDetails()
+    {
+        return new Product
+        {
+            Name = TxtName.Text,
+            Description = TxtDescription.Text,
+            Price = int.Parse(TxtPrice.Text),
+            ProductType = (ProductType)Enum.Parse(typeof(ProductType), DdlProductType.GetAttribute("innerText"))
+        };
     }
 }
