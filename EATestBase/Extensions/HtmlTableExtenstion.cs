@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using OpenQA.Selenium;
 
-namespace SeleniumXUnitBasic.Extensions;
+namespace EATestBase.Extensions;
 
 public static class HtmlTableExtenstion
 {

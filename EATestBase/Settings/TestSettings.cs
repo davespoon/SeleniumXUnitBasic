@@ -1,6 +1,6 @@
-﻿using SeleniumXUnitBasic.Driver;
+﻿using EATestBase.Driver;
 
-namespace SeleniumXUnitBasic.Settings;
+namespace EATestBase.Settings;
 
 public class TestSettings
 {

@@ -1,10 +1,10 @@
 ﻿using System.Reflection;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using EATestBase.Settings;
 using Microsoft.Extensions.DependencyInjection;
-using SeleniumXUnitBasic.Settings;
 
-namespace SeleniumXUnitBasic.Driver;
+namespace EATestBase.Driver;
 
 public static class WebDriverInitializerExtenstion
 {

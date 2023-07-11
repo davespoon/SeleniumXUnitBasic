@@ -1,7 +1,7 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 
-namespace SeleniumXUnitBasic.Extensions
+namespace EATestBase.Extensions
 {
     public static class WebElementExtensions
     {

@@ -1,7 +1,7 @@
-﻿using OpenQA.Selenium;
-using SeleniumXUnitBasic.Settings;
+﻿using EATestBase.Settings;
+using OpenQA.Selenium;
 
-namespace SeleniumXUnitBasic.Driver;
+namespace EATestBase.Driver;
 
 public class DriverFixture : IDriverFixture, IDisposable
 {

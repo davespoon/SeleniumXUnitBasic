@@ -1,4 +1,4 @@
-﻿namespace SeleniumXUnitBasic.Driver;
+﻿namespace EATestBase.Driver;
 
 public enum BrowserType
 {

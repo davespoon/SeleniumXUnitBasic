@@ -1,8 +1,8 @@
-﻿using EATestProject.Pages;
+﻿using EABddTests.Pages;
 using Microsoft.Extensions.DependencyInjection;
 using EATestBase.Driver;
 
-namespace EATestProject;
+namespace EABddTests;
 
 public class Startup
 {

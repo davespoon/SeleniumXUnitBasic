@@ -1,6 +1,6 @@
 ﻿using OpenQA.Selenium;
 
-namespace SeleniumXUnitBasic.Extensions;
+namespace EATestBase.Extensions;
 
 public class ColumnSpecialValue
 {

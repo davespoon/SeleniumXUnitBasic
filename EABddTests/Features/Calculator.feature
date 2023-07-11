@@ -1,13 +1,12 @@
-﻿Feature: Calculator
-![Calculator](https://specflow.org/wp-content/uploads/2020/09/calculator.png)
-Simple calculator for adding **two** numbers
+﻿Feature: Product
+Test the product page  functionalities
 
-Link to a feature: [Calculator]($projectname$/Features/Calculator.feature)
-***Further read***: **[Learn more about how to generate Living Documentation](https://docs.specflow.org/projects/specflow-livingdoc/en/latest/LivingDocGenerator/Generating-Documentation.html)**
-
-@mytag
-Scenario: Add two numbers
-	Given the first number is 50
-	And the second number is 70
-	When the two numbers are added
-	Then the result should be 120
+    @mytag
+    Scenario: Create product and verify the details
+        Given I click the Product menu
+        And I click the "Create" link
+        And I create product with following details
+          | Name       | Descrription       | Price | ProductType |
+          | Headphones | Noise cancellation | 300   | PERIPHARALS |
+        When I click the details link of the newly created product
+        Then I see all the product details are created as expected

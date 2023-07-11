@@ -1,4 +1,4 @@
-﻿namespace SeleniumXUnitBasic.Extensions;
+﻿namespace EATestBase.Extensions;
 
 public class TableDataCollection
 {

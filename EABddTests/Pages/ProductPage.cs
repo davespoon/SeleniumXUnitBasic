@@ -1,9 +1,9 @@
-﻿using EATestProject.Model;
+﻿using EABddTests.Model;
 using OpenQA.Selenium;
 using EATestBase.Driver;
 using EATestBase.Extensions;
 
-namespace EATestProject.Pages;
+namespace EABddTests.Pages;
 
 public class ProductPage : IProductPage
 {

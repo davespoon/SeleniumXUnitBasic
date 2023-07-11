@@ -3,7 +3,7 @@ using EATestProject.Model;
 using EATestProject.Pages;
 using FluentAssertions;
 using OpenQA.Selenium;
-using SeleniumXUnitBasic.Driver;
+using EATestBase.Driver;
 
 namespace EATestProject
 {

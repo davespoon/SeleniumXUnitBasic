@@ -1,9 +1,8 @@
 ﻿using OpenQA.Selenium;
 using EATestBase.Driver;
 using EATestBase.Extensions;
-using EATestBase.Settings;
 
-namespace EATestProject.Pages;
+namespace EABddTests.Pages;
 
 public class HomePage : IHomePage
 {
@@ -24,6 +23,9 @@ public class HomePage : IHomePage
         LnkProduct.Click();
         LnkCreate.Click();
     }
+
+    public void ClickProduct() => LnkProduct.Click();
+    public void ClickCreate() => LnkCreate.Click();
 
 
     public void PerformClickOnSpecialValue(string name, string operation)
